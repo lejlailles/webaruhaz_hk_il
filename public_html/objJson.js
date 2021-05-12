@@ -1,13 +1,15 @@
 $(function () {
     kiir();
-    $("OK").click();
-    
+
+  
+
 });
 
 var szovegJSON = '[{"Fajta":"Kávé","Nev":"Őrölt kávé","Ar":900,"Mennyiseg":"500 g"},{"Fajta":"Kopi Luwak","Nev": "frissen pörkölt single origin arabica kávé különlegesség Jáva szigetéről", "Ar": 5000, "Mennyiseg": "500 g"}]';
 var szovegbolObjektum = JSON.parse(szovegJSON);
 
 console.log(szovegbolObjektum);
+
 
 
 
@@ -34,8 +36,7 @@ function kiir() {
         var td = '<td><button>Törlés</button></td>';
         tr.each(function () {
             $(td).insertAfter($(this).find('td').eq(3));
-      
-    });
+               });
     
    
 }
