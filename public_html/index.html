@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 
 <html>
+
     <head>
         <title>Illés Lejla, Hecz Klaudia</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="stilus.css" rel="stylesheet" type="text/css"/>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-         <script src="objJson.js" type="text/javascript"></script>
-        
+        <link href="stilus.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
+        <script src="objJson.js" type="text/javascript">
+        </script>
+
     </head>
+
     <body>
         <main>
-        <header>
-            <h1>Webáruház</h1>
-        </header>
+            <header>
+                <h1>Webáruház</h1>
+            </header>
+            <article id="elso">
 
-            <article>
-                
+            </article>
+            <article id="masodik">
+                <form action="#" method="get">
+                    <fieldset>
+                        <legend>Új termék hozzáadása:</legend>
+                        <div>
+                                <label for="faj">Fajta:</label>
+                                <input type="text" name="faj" id="faj" required placeholder="kávé">
+                        </div>
+                        <div>
+                                <label for="tn">Termék név:</label>
+                                <input type="text" name="tn" id="tn" required placeholder="arabica...">
+                        </div>
+                        <div>
+                                <label for="ar">Ár:</label>
+                                <input type="text" name="ar" id="ar">
+                        </div>
+                        <div>
+                                <label for="me">Mennyiség:</label>
+                                <input type="text" name="me" id="me">
+                        </div>                        
+                        <button type="submit" id="OK" name="OK" value="OK">OK</button>
+                    </fieldset>
+                </form>
             </article>
             <footer>
                 <h3>Illés Lejla, Hecz Klaudia</h3>
