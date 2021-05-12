@@ -4,8 +4,8 @@ main {
     width: 600px;
     margin:0 auto;
     background-color: white;
-   
-   
+
+
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 
 main, header, article, footer {
     border: 1px solid darkred;
-     padding:10px;
+    padding:10px;
 }
 
 header {
@@ -34,7 +34,7 @@ table {
     width:100%;
     border-collapse: collapse;
 }
- 
+
 table, td, th {
     border:1px solid darkred;
     padding:5px;
@@ -47,7 +47,7 @@ th {
 }
 
 fieldset div {
-  display: grid;
-  grid-template-columns: 100px auto;
-  padding: 5px;
+    display: grid;
+    grid-template-columns: 100px auto;
+    padding: 5px;
 }
