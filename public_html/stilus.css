@@ -29,3 +29,25 @@ footer {
     text-align: center;
     font-size: 12px;
 }
+
+table {
+    width:100%;
+    border-collapse: collapse;
+}
+ 
+table, td, th {
+    border:1px solid darkred;
+    padding:5px;
+    text-align: center;
+
+}
+th {
+    background:burlywood;
+    color: darkred;
+}
+
+fieldset div {
+  display: grid;
+  grid-template-columns: 100px auto;
+  padding: 5px;
+}
