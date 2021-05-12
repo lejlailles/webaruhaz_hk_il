@@ -1,17 +1,7 @@
 $(function () {
-    
-    for (var item in termekek) {
-        $("article").append(item+": "+termekek[item]+"<br>");
+        var szovegbolObjektum=JSON.parse(szovegJSON);
         
-    }
     
 });
 
-
-var termekek= {
-    Fajta:"Kávé",
-    Nev:"Őrölt kávé",
-    Ar:900,
-    Mennyiseg:"500 g"
-    };
-
+var szovegJSON='[{"Fajta":"Kávé","Nev":"Őrölt kávé","Ar":900,"Mennyiseg":"500 g"},{"Fajta":"Kopi Luwak", "Nev":"frissen pörkölt single origin arabica kávé különlegesség Jáva szigetéről","Ar":5000,"Mennyiseg":"500 g"}]';
