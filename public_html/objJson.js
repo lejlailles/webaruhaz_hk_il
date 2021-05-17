@@ -1,5 +1,5 @@
-var szovegJSON = '[{"Fajta":"Valami","Nev":"Orölt kávé","Ar":"900","Mennyiseg":"500", "Torles":"", "Modositas":""},{"Fajta":"BopiLuwak","Nev": "Brissen pörkölt single origin arabica kávé különlegesség Jáva szigetéről", "Ar": "5000", "Mennyiseg": "1000", "Torles":"", "Modositas":""}, {"Fajta":"Kavé","Nev":"Egész szemes kávé","Ar":"1500","Mennyiseg":"250", "Torles":"", "Modositas":""}]';
-var szovegJSON = JSON.parse(szovegJSON);
+var szoveg = '[{"Fajta":"Valami","Nev":"Orölt kávé","Ar":"900","Mennyiseg":"500", "Torles":"", "Modositas":""},{"Fajta":"BopiLuwak","Nev": "Brissen pörkölt single origin arabica kávé különlegesség Jáva szigetéről", "Ar": "5000", "Mennyiseg": "1000", "Torles":"", "Modositas":""}, {"Fajta":"Kavé","Nev":"Egész szemes kávé","Ar":"1500","Mennyiseg":"250", "Torles":"", "Modositas":""}]';
+var szoveg = JSON.parse(szoveg);
 
 $(function () {
     kiir();
@@ -16,14 +16,14 @@ function kiir() {
     //var i = 1;
 
     $("#elso table").append("<tr>");
-    for (var index in szovegJSON[0]) {
+    for (var index in szoveg[0]) {
         $("#elso table tr").append("<th id=" + index + ">" + index + "</th>");
     }
 
-    for (var i = 0; i < szovegJSON.length; i++) {
+    for (var i = 0; i < szoveg.length; i++) {
         $("#elso table").append("<tr>");
-        for (var item in szovegJSON[i]) {
-            $("#elso table tr").eq(i + 1).append("<td>" + szovegJSON[i][item] + "</td>");
+        for (var item in szoveg[i]) {
+            $("#elso table tr").eq(i + 1).append("<td>" + szoveg[i][item] + "</td>");
         }
         //i++;
     }
@@ -45,18 +45,14 @@ function rendez() {
 //        szovegJSON.sort(function(b, a){return a.Mennyiseg - b.Mennyiseg});
 //    }
 
-    
-    var id = $(this).attr("id");
-
 //  szovegJSON.sort();
-  
-    console.log(id);
-    //Rendezzük kor szerint növekvő sorrendbe
-//     szovegJSON.sort(function(a, b){return a - b});//ez az érték pozitív vagy negatív
 
-    
+    //Rendezzük kor szerint növekvő sorrendbe
+//     szovegJSON.sort(function(a, b){return a - b});
+
+
 //    szovegJSON.reverse();
-    
+
     //név szerint ABC sorrendbe rendezünk
 //     szovegJSON.sort(function (a, b) {
 //         console.log(Number(a.Fajta<b.Fajta)-0.5);
@@ -67,32 +63,24 @@ function rendez() {
 //        return Number(a.Nev>b.Nev)-0.5;//ez az érték pozitív vagy negatív
 //    });
 
-
-
+    var id = $(this).attr("id");
+    console.log(id);
     if (irany) {
-        szovegJSON.sort(function (a, b) {
+        szoveg.sort(function (a, b) {
             return Number(a[id] > b[id]) - 0.5;
         });
-
     } else {
-        szovegJSON.sort(function (a, b) {
-            return Number(b[id] - a[id]) - 0.5;
+        szoveg.sort(function (a, b) {
+            return Number(a[id] < b[id]) - 0.5;
         });
     }
+    
+//    szovegJSON.sort(function (a, b) {
+//        return a - b;
+//    });
 
-    if (irany) {
-        szovegJSON.sort(function (a, b) {
-            return Number(a.Ar > b.Ar);
-        });
-
-    } else {
-        szovegJSON.sort(function (a, b) {
-            return Number(a.Ar < b.Ar);
-
-        });
-    }
     irany = !irany;
-    console.log(szovegJSON);
+    console.log(szoveg);
 
 
     kiir();
@@ -101,13 +89,13 @@ function rendez() {
 }
 
 function adatokTorlese() {
-//    var adatokID;
-//    for (var i = 0; i < szovegJSON.length; i++) {
-//        adatokID = szovegJSON[i];
-//        szovegJSON.splice(adatokID, i);        
-//    }
+    var adatokID;
+    for (var i = 0; i < szoveg.length; i++) {
+        adatokID = szoveg[i];
+        szoveg.splice(adatokID, i);
+    }
 
-    console.log(szovegJSON);
+    console.log(szoveg);
     kiir();
     torolKiir();
     modositKiir();
@@ -135,7 +123,7 @@ function adatokElment() {
     ujadatok.Nev = $("#tn").val();
     ujadatok.Ar = $("#ar").val();
     ujadatok.Mennyiseg = $("#me").val();
-    szovegJSON.push(ujadatok);
+    szoveg.push(ujadatok);
     console.log(ujadatok);
     kiir();
     torolKiir();
