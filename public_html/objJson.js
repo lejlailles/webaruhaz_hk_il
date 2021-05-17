@@ -6,7 +6,7 @@ $(function () {
     torolKiir();
     modositKiir();
     $("#OK").click(adatokElment);
-
+    $("#torol").click(adatokTorlese);
 });
 
 function kiir() {
@@ -46,11 +46,11 @@ function rendez() {
 //    }
 
     
-//    var id = $(this).attr("id");
+    var id = $(this).attr("id");
 
 //  szovegJSON.sort();
   
-  //  console.log(id);
+    console.log(id);
     //Rendezzük kor szerint növekvő sorrendbe
 //     szovegJSON.sort(function(a, b){return a - b});//ez az érték pozitív vagy negatív
 
@@ -69,28 +69,28 @@ function rendez() {
 
 
 
-//    if (irany) {
-//        szovegJSON.sort(function (a, b) {
-//            return Number(a[id] > b[id]) - 0.5;
-//        });
-//
-//    } else {
-//        szovegJSON.sort(function (a, b) {
-//            return Number(b[id] - a[id]) - 0.5;
-//        });
-//    }
-//
-//    if (irany) {
-//        szovegJSON.sort(function (a, b) {
-//            return Number(a.Ar > b.Ar);
-//        });
-//
-//    } else {
-//        szovegJSON.sort(function (a, b) {
-//            return Number(a.Ar < b.Ar);
-//
-//        });
-//    }
+    if (irany) {
+        szovegJSON.sort(function (a, b) {
+            return Number(a[id] > b[id]) - 0.5;
+        });
+
+    } else {
+        szovegJSON.sort(function (a, b) {
+            return Number(b[id] - a[id]) - 0.5;
+        });
+    }
+
+    if (irany) {
+        szovegJSON.sort(function (a, b) {
+            return Number(a.Ar > b.Ar);
+        });
+
+    } else {
+        szovegJSON.sort(function (a, b) {
+            return Number(a.Ar < b.Ar);
+
+        });
+    }
     irany = !irany;
     console.log(szovegJSON);
 
@@ -101,11 +101,11 @@ function rendez() {
 }
 
 function adatokTorlese() {
-    var adatokID = 0;
-    for (var i = 0; i < szovegJSON.length; i++) {
-        adatokID = szovegJSON[i];
-        szovegJSON.splice(adatokID, i);
-    }
+//    var adatokID;
+//    for (var i = 0; i < szovegJSON.length; i++) {
+//        adatokID = szovegJSON[i];
+//        szovegJSON.splice(adatokID, i);        
+//    }
 
     console.log(szovegJSON);
     kiir();
@@ -115,7 +115,7 @@ function adatokTorlese() {
 
 function modositKiir() {
     var tr = $('#elso table tr');
-    var td = '<td><button>Módosítás</button></td>';
+    var td = '<td><button id="modosit">Módosítás</button></td>';
     tr.each(function () {
         $(td).insertAfter($(this).find('td').eq(4));
     });
