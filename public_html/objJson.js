@@ -34,54 +34,31 @@ function kiir() {
 var irany = false;
 
 function rendez() {
-//    if(irany){
-//    szovegJSON.sort(function(a, b){return a.Ar - b.Ar});
-//    } else{
-//        szovegJSON.sort(function(b, a){return a.Ar - b.Ar});
-//    }
-//    if(irany){
-//    szovegJSON.sort(function(a, b){return a.Mennyiseg - b.Mennyiseg});
-//    } else {
-//        szovegJSON.sort(function(b, a){return a.Mennyiseg - b.Mennyiseg});
-//    }
-
-//  szovegJSON.sort();
-
-    //Rendezzük kor szerint növekvő sorrendbe
-//     szovegJSON.sort(function(a, b){return a - b});
-
-
-//    szovegJSON.reverse();
-
-    //név szerint ABC sorrendbe rendezünk
-//     szovegJSON.sort(function (a, b) {
-//         console.log(Number(a.Fajta<b.Fajta)-0.5);
-//        return Number(a.Fajta>b.Fajta)-0.5;//ez az érték pozitív vagy negatív
-//    });
-//    szovegJSON.sort(function (a, b) {
-//         console.log(Number(a.Nev<b.Nev)-0.5);
-//        return Number(a.Nev>b.Nev)-0.5;//ez az érték pozitív vagy negatív
-//    });
-
     var id = $(this).attr("id");
-    console.log(id);
     if (irany) {
-        szoveg.sort(function (a, b) {
-            return Number(a[id] > b[id]) - 0.5;
-        });
+        if (id === 'Ar' || id === 'Mennyiseg') {
+            szoveg.sort(function (a, b) {
+                return a[id] - b[id];
+            });
+        } else {
+            szoveg.sort(function (a, b) {
+                return Number(a[id] > b[id]) - 0.5;
+            });
+        }
     } else {
-        szoveg.sort(function (a, b) {
-            return Number(a[id] < b[id]) - 0.5;
-        });
+        if (id === 'Ar' || id === 'Mennyiseg') {
+            szoveg.sort(function (a, b) {
+                return b[id] - a[id];
+            });
+        } else {
+            szoveg.sort(function (a, b) {
+                return Number(a[id] < b[id]) - 0.5;
+            });
+        }
     }
-    
-//    szovegJSON.sort(function (a, b) {
-//        return a - b;
-//    });
 
     irany = !irany;
     console.log(szoveg);
-
 
     kiir();
     torolKiir();
